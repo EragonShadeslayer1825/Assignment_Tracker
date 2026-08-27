@@ -1,0 +1,105 @@
+.home-page {
+  min-height: 100vh;
+  background: #f5f7fa;
+  padding: 60px 24px;
+}
+
+.home-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.home-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.home-icon {
+  width: 46px;
+  height: 46px;
+  margin: 0 auto 18px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111827;
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.home-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #6b7280;
+}
+
+.home-header h1 {
+  margin: 10px 0 8px;
+  font-size: 38px;
+  color: #111827;
+}
+
+.home-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.year-section {
+  margin-bottom: 34px;
+}
+
+.year-section h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  color: #111827;
+}
+
+.department-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.class-card {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 20px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.class-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.class-card strong {
+  font-size: 17px;
+  color: #111827;
+}
+
+.class-card span {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+@media (max-width: 650px) {
+  .home-page {
+    padding: 40px 16px;
+  }
+
+  .home-header h1 {
+    font-size: 30px;
+  }
+
+  .department-grid {
+    grid-template-columns: 1fr;
+  }
+}
