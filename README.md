@@ -1,125 +1,64 @@
 # Assignment Tracker
 
-A simple assignment tracker for keeping assignments in one place for the entire batch.
+A simple assignment tracker made to keep assignments for the whole batch in one place instead of having them scattered across WhatsApp messages.
 
-## 🚨 IMPORTANT — HOW TO OPEN YOUR CLASS
+## 🌐 Website
 
-**DO NOT use the main domain by itself.**
+**https://assignment-tracker-iiitb.vercel.app**
 
-The main domain is only the base URL. You need to add your **year + department** at the end.
+You can now open the **main domain directly** and select your year + department from the home page.
 
-### Examples
+You can also go directly to a class using its link:
 
-**1st Year CSE**
-https://assignment-tracker-iiitb.vercel.app/1-cse
-
-**4th Year ECE**
-https://assignment-tracker-iiitb.vercel.app/4-ece
-
-**1st Year AI & DS**
-https://assignment-tracker-iiitb.vercel.app/1-aids
+- `https://assignment-tracker-iiitb.vercel.app/1-cse` → 1st Year CSE
+- `https://assignment-tracker-iiitb.vercel.app/4-ece` → 4th Year ECE
+- `https://assignment-tracker-iiitb.vercel.app/1-aids` → 1st Year AI & DS
 
 The format is:
 
-`https://assignment-tracker-iiitb.vercel.app/<year>-<department>`
-
-So if you open only:
-
-https://assignment-tracker-iiitb.vercel.app
-
-you may not see the assignment tracker. **That's normal — add your class to the URL.**
+`/<year>-<department>`
 
 ---
 
-## What is it?
+## What it does
 
-Assignment Tracker is made to keep assignments for a batch in one place instead of having them scattered across WhatsApp messages.
+The tracker is designed to work across **all years and departments** such as CSE, ECE, AI & DS, etc.
 
-It supports different departments and years, with each class having its own tracker.
+Students can easily check upcoming assignments, due dates and older assignments, with both **list and calendar views**. Assignments are automatically handled based on their due dates and can be archived for later reference.
 
-### Features
+### For CRs / Class Admins
 
-- 📚 Class-specific assignment trackers for different departments and years
-- ✏️ CRs / admins can add, edit, delete and archive assignments
-- 📅 List and calendar views with automatic handling of past due dates
-- 📦 Archived assignments remain available for reference
-- 🔐 Class admins can only manage their own class
-- 👑 A **Master Admin** can manage all classes and perform the year-end reset when required
+CRs or the person responsible for a class can get admin access to:
 
----
-
-## For Students
-
-No login is required to view assignments.
-
-Just open your class link.
-
-For example:
-
-`https://assignment-tracker-iiitb.vercel.app/1-cse`
-
----
-
-## For CRs / Class Admins
-
-CRs or the person responsible for maintaining a class can get admin access.
-
-Admin access allows you to:
-
-- Add assignments
-- Edit assignments
+- Add and edit assignments
 - Delete incorrect assignments
-- Archive old assignments
-- Restore archived assignments
-- Clear archived assignments for your class
+- Archive and restore assignments
+- Manage archived assignments for their class
 
-### How to get admin access
+Each class admin is restricted to their own class.
 
-**Admin passwords are kept private and are not stored in this repository.**
-
-If you are a CR / person in charge and want admin access, **contact me directly for the credentials.**
-
-Once you have the credentials:
-
-1. Open your class tracker.
-2. Click **Admin**.
-3. Enter the provided admin account and password.
-4. You will then get the admin controls for your class.
-
-### Important
-
-A class admin can only manage the class they are assigned to.
-
-For example, a `1 CSE` admin cannot add or edit assignments in `4 ECE`.
-
----
-
-## Master Admin
+### Master Admin
 
 There is also a **Master Admin** account for overall management.
 
-The Master Admin can manage all class trackers and has access to the **Clear EVERYTHING** function.
-
-This is intended for major/year-end transitions and permanently removes assignments across all classes while keeping the class structure and admin accounts intact.
-
-**Master Admin credentials are private and are not included in this repository.**
+The Master Admin can manage all classes and has access to a **Clear Everything** function, intended mainly for the end of an academic year when the assignment data needs to be reset.
 
 ---
 
-## Live Website
+## 🔐 Admin Access
 
-### Main domain
+Admin accounts and passwords are kept private and are **not stored in this repository**.
 
-https://assignment-tracker-iiitb.vercel.app
+If you are a CR / person in charge and want to manage your class, contact me directly for the admin credentials.
 
-**Remember: the main domain is not a class tracker by itself.**
+Once you have them:
 
-Add your class to the URL:
+1. Open the main website.
+2. Select your class.
+3. Open the **Admin** section.
+4. Log in using the credentials provided to you.
 
-`/1-cse`  
-`/4-ece`  
-`/1-aids`  
-etc.
+Class admins can only manage assignments belonging to their assigned class.
 
 ---
 
@@ -127,21 +66,21 @@ etc.
 
 - React
 - Vite
-- Supabase
 - React Router
+- Supabase
 - Vercel
 
 ## Security
 
-- Supabase authentication for admin accounts
-- Role-based access for Master and Class Admins
+- Supabase authentication
+- Role-based access for Class Admins and Master Admin
 - Class-level permissions
 - Row Level Security (RLS)
-- Sensitive database operations handled through protected database functions
-- Admin passwords and secret environment variables are not committed to GitHub
+- Protected database functions for sensitive operations
+- Secret environment variables are kept out of the repository
 
 ---
 
 ## Feedback
 
-If you find a bug, have a suggestion, or want your class added, feel free to contact me.
+If you find a bug, have a feature suggestion, or want your class added, feel free to contact me.
