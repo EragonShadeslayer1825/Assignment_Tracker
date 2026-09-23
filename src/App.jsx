@@ -12,6 +12,8 @@ import {
   Archive,
   RotateCcw,
   X,
+  Sun,
+  Moon,
 } from "lucide-react";
 import { supabase } from "./lib/supabase";
 import "./App.css";
@@ -46,7 +48,30 @@ const getYearLabel = (year) => {
 function App() {
   const { classSlug } = useParams();
 
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem("assignment-tracker-theme");
+
+    if (savedTheme === "dark" || savedTheme === "light") {
+      return savedTheme;
+    }
+
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  });
+
   const [classInfo, setClassInfo] = useState(null);
+  useEffect(() => {
+  document.documentElement.setAttribute(
+    "data-theme",
+    theme
+  );
+
+  localStorage.setItem(
+    "assignment-tracker-theme",
+    theme
+  );
+}, [theme]);
 
   const [assignments, setAssignments] = useState([]);
   const [archivedAssignments, setArchivedAssignments] =
@@ -840,6 +865,32 @@ function App() {
         </div>
 
         <div className="header-actions">
+        <button
+  className="theme-button"
+  onClick={() =>
+    setTheme((current) =>
+      current === "dark"
+        ? "light"
+        : "dark"
+    )
+  }
+  aria-label={
+    theme === "dark"
+      ? "Switch to light mode"
+      : "Switch to dark mode"
+  }
+  title={
+    theme === "dark"
+      ? "Switch to light mode"
+      : "Switch to dark mode"
+  }
+>
+  {theme === "dark" ? (
+    <Sun size={17} />
+  ) : (
+    <Moon size={17} />
+  )}
+</button>
           <div className="view-toggle">
             <button
               className={
@@ -1282,7 +1333,7 @@ function AssignmentList({
                   </div>
 
                   {assignment.description && (
-                    <p>
+                    <p className="assignment-description">
                       {
                         assignment.description
                       }
@@ -1423,7 +1474,7 @@ function ArchivedAssignments({
                   </span>
 
                   {assignment.description && (
-                    <p>
+                    <p className="assignment-description">
                       {
                         assignment.description
                       }
@@ -1721,7 +1772,7 @@ function DayModal({
                     </h4>
 
                     {assignment.description && (
-                      <p>
+                      <p className="assignment-description">
                         {
                           assignment.description
                         }
